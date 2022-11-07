@@ -1,4 +1,4 @@
-# Importing the time module, BeautifulSoup and requests module.
+# Importing the time, BeautifulSoup and requests module.
 import time
 from bs4 import BeautifulSoup
 import requests
