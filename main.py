@@ -1,5 +1,5 @@
 # Importing the time module, BeautifulSoup and requests module.
-from time import time
+import time
 from bs4 import BeautifulSoup
 import requests
 
@@ -17,7 +17,7 @@ def find_jobs():
 
     # Looping through the jobs and getting the published date.
     for index,job in enumerate(jobs):
-        job = job.text
+        jobtxt = job.text
         published_date = job.find("span", class_="sim-posted").span.text
         # Checking if the job was posted in the last few days. If it was, then it will get the company
         # name, required skills and more info.
@@ -30,7 +30,7 @@ def find_jobs():
             # the job. If it is not, then it will write the company name, required skills and more
             # info to a file.
             if unfamiliar_skill not in skills:
-                with open(f"posts/{index}.txt","w") as file:
+                with open (f"C:\\Users\\New\\PycharmProjects\\pythonProject1\\posts\\{index}.txt","w") as file:
                      file.write(f"Company Name: {company_name.strip()}\n")
                      file.write(f"Required Skills: {skills.strip()}\n")
                      file.write(f"More Info: {more_info}\n")
@@ -43,4 +43,4 @@ if __name__ == "__main__":
         find_jobs()
         time_wait = 10
         print(f"Waiting {time_wait} seconds")
-        time.sleep(input("Enter Seconds to refresh:"))
+        time.sleep(600)
